@@ -17,16 +17,14 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.image-wrapper img,
-.image-wrapper model-viewer {
+.image-wrapper img {
   width: 100%;
   display: block;
   filter: grayscale(20%) contrast(1.1);
   transition: var(--transition);
 }
 
-.image-wrapper:hover img,
-.image-wrapper:hover model-viewer {
+.image-wrapper:hover img {
   filter: grayscale(0%) contrast(1.2);
   transform: scale(1.02);
 }
