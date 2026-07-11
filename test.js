@@ -1,0 +1,1 @@
+const fs = require('fs'); let code = fs.readFileSync('src/components/Scene.jsx', 'utf8'); code = code.replace(/<Text[\s\S]*?<\/Text>/g, '{/* Text Removed */}'); fs.writeFileSync('src/components/Scene.jsx', code);
