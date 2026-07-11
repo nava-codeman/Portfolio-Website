@@ -89,11 +89,12 @@ const projectData = {
       { label: 'Location', value: 'Morigaon, Assam, India – 782105' }
     ],
     links: [
-      { label: 'GitHub', url: 'https://github.com/nava-codeman' },
-      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/navjyoti-nath-674688229/' },
-      { label: 'Instagram', url: 'https://www.instagram.com/_navjyoti_nath_/' },
-      { label: 'YouTube', url: 'https://www.youtube.com/@navaxlifts' },
-      { label: 'Facebook', url: 'https://www.facebook.com/jyotinav710/' }
+      { label: 'GitHub', url: 'https://github.com/nava-codeman', icon: '/github.png' },
+      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/navjyoti-nath-674688229/', icon: '/linkedin.png' },
+      { label: 'Instagram', url: 'https://www.instagram.com/_navjyoti_nath_/', icon: '/instagram.png' },
+      { label: 'YouTube', url: 'https://www.youtube.com/@navaxlifts', icon: '/icons8-youtube-logo-94.png' },
+      { label: 'Facebook', url: 'https://www.facebook.com/jyotinav710/', icon: '/icons8-facebook-96.png' },
+      { label: 'Email', url: 'mailto:jyotinav710@gmail.com', icon: '/logo-gmail-9988.png' }
     ]
   }
 };
@@ -165,10 +166,28 @@ const ProjectOverlay = () => {
             )}
 
             {data.links && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginBottom: '2rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
                 {data.links.map((link, i) => (
-                  <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" style={{ color: '#00f0ff', textDecoration: 'none', fontSize: '1.1rem', letterSpacing: '1px' }}>
-                    → {link.label}
+                  <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#00f0ff', textDecoration: 'none', fontSize: '1.1rem', letterSpacing: '1px' }}>
+                    <div style={{ width: '24px', display: 'flex', justifyContent: 'center' }}>
+                      {link.icon ? (
+                        <img 
+                          src={link.icon} 
+                          alt={link.label} 
+                          style={{ 
+                            width: '100%', 
+                            height: 'auto', 
+                            maxHeight: '24px',
+                            objectFit: 'contain',
+                            backgroundColor: link.label === 'GitHub' ? 'white' : 'transparent',
+                            borderRadius: link.label === 'GitHub' ? '50%' : '0'
+                          }} 
+                        />
+                      ) : (
+                        '→'
+                      )}
+                    </div>
+                    <span>{link.label}</span>
                   </a>
                 ))}
               </div>
